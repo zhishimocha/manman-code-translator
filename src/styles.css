@@ -749,17 +749,17 @@ h1 {
   }
 
   .bear-image {
-    width: min(132px, 36vw);
-    margin: 8px auto 10px;
+    width: min(174px, 44vw);
+    margin: 8px auto 12px;
   }
 
   .soft-label {
-    margin-bottom: 6px;
-    font-size: 0.86rem;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
   }
 
   h1 {
-    font-size: clamp(1.82rem, 8.5vw, 2.65rem);
+    font-size: clamp(2.08rem, 9.8vw, 3.15rem);
   }
 
   .home-search-label {
@@ -789,6 +789,10 @@ h1 {
     justify-content: space-between;
   }
 
+  .detail-heading {
+    justify-content: flex-end;
+  }
+
   .flip-entry,
   .sort-toggle {
     width: 100%;
@@ -816,19 +820,29 @@ h1 {
   }
 
   .card-list {
-    grid-template-columns: minmax(0, min(74vw, 320px));
-    justify-content: center;
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .study-card {
-    min-height: 150px;
-    padding: 12px;
-    font-size: 0.86rem;
+    min-height: 112px;
+    padding: 10px 12px;
+    font-size: 0.82rem;
   }
 
   .study-card h2 {
-    font-size: 1.08rem;
+    margin-bottom: 6px;
+    font-size: 1rem;
+  }
+
+  .study-card p {
+    margin-bottom: 6px;
+    line-height: 1.36;
+  }
+
+  .tags {
+    gap: 5px;
+    margin-top: 8px;
   }
 
   .card-type,
@@ -840,7 +854,7 @@ h1 {
   }
 
   .card-topline {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .shelf-grid {

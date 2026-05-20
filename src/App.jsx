@@ -321,8 +321,12 @@ function App() {
       setFlipCard(null)
       return
     }
-    const nextIndex = Math.floor(Math.random() * cards.length)
-    setFlipCard(cards[nextIndex])
+    setFlipCard((current) => {
+      if (cards.length === 1) return cards[0]
+      const nextCards = cards.filter((card) => card.id !== current?.id)
+      const nextIndex = Math.floor(Math.random() * nextCards.length)
+      return nextCards[nextIndex]
+    })
   }
 
   function addLibrary(event) {
@@ -378,6 +382,7 @@ function App() {
           setQuery={setQuery}
           flipCard={flipCard}
           pickRandomCard={pickRandomCard}
+          clearFlipCard={() => setFlipCard(null)}
           deleteCard={deleteCard}
           editCard={openEditModal}
         />
@@ -451,18 +456,18 @@ function Decorations() {
   )
 }
 
-function HomeView({ query, setQuery, flipCard, pickRandomCard, deleteCard, editCard }) {
+function HomeView({ query, setQuery, flipCard, pickRandomCard, clearFlipCard, deleteCard, editCard }) {
   return (
-    <section className="home-panel" aria-labelledby="app-title">
-      <img className="bear-image" src="/assets/top-bear.png" alt="" aria-hidden="true" />
+    <section className="home-panel" aria-labelledby="app-title" onClick={() => flipCard && clearFlipCard()}>
+      <img className="bear-image" src="/assets/top-bear.png" alt="" aria-hidden="true" onClick={(event) => event.stopPropagation()} />
 
-      <header className="hero">
+      <header className="hero" onClick={(event) => event.stopPropagation()}>
         <p className="soft-label">happy coding</p>
         <h1 id="app-title">满满代码翻译器</h1>
       </header>
 
-      <p className="home-search-label">搜索</p>
-      <div className="quick-actions">
+      <p className="home-search-label" onClick={(event) => event.stopPropagation()}>搜索</p>
+      <div className="quick-actions" onClick={(event) => event.stopPropagation()}>
         <label className="search-box home-search-box">
           <span className="sr-only">搜索</span>
           <input
@@ -478,7 +483,7 @@ function HomeView({ query, setQuery, flipCard, pickRandomCard, deleteCard, editC
       </div>
 
       {flipCard && (
-        <section className="flip-zone" aria-live="polite">
+        <section className="flip-zone" aria-live="polite" onClick={(event) => event.stopPropagation()}>
           <Card card={flipCard} onDelete={deleteCard} onEdit={editCard} featured />
         </section>
       )}
@@ -593,12 +598,8 @@ function LibraryView({
 
   if (libraryMode === 'detail' && selectedLibrary) {
     return (
-      <section className="page-panel" aria-labelledby="library-detail-title">
-        <div className="page-heading library-heading">
-          <div>
-            <p className="soft-label">dictionary shelf</p>
-            <h1 id="library-detail-title">{selectedLibrary.name}</h1>
-          </div>
+      <section className="page-panel" aria-label={`${selectedLibrary.name}条目`}>
+        <div className="page-heading library-heading detail-heading">
           <button className="sort-toggle" type="button" onClick={() => setLibraryMode('grid')}>
             返回
           </button>
