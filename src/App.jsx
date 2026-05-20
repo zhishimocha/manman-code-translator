@@ -552,14 +552,8 @@ function LibraryView({
   if (libraryMode === 'create') {
     return (
       <section className="page-panel" aria-labelledby="create-library-title">
-        <div className="page-heading library-heading">
-          <div>
-          <p className="soft-label">new shelf</p>
-            <h1 id="create-library-title">新建辞典</h1>
-          </div>
-          <button className="sort-toggle" type="button" onClick={() => setLibraryMode('grid')}>
-            返回
-          </button>
+        <div className="create-heading">
+          <h1 id="create-library-title">新建辞典</h1>
         </div>
 
         <form className="library-form" onSubmit={addLibrary}>
@@ -590,6 +584,9 @@ function LibraryView({
 
           <button className="save-button" type="submit">
             保存辞典
+          </button>
+          <button className="form-return-button" type="button" onClick={() => setLibraryMode('grid')}>
+            返回
           </button>
         </form>
       </section>
