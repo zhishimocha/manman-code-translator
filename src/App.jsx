@@ -357,7 +357,7 @@ function App() {
 
   function confirmDeleteLibraries() {
     if (selectedLibraryIds.length === 0) return
-    const ok = window.confirm(`确认删除选中的 ${selectedLibraryIds.length} 个词典吗？卡片本身会保留在卡片库里。`)
+    const ok = window.confirm(`确认删除选中的 ${selectedLibraryIds.length} 个辞典吗？卡片本身会保留在卡片库里。`)
     if (!ok) return
 
     setLibraries((current) => current.filter((library) => !selectedLibraryIds.includes(library.id)))
@@ -461,9 +461,10 @@ function HomeView({ query, setQuery, flipCard, pickRandomCard, deleteCard, editC
         <h1 id="app-title">满满代码翻译器</h1>
       </header>
 
+      <p className="home-search-label">搜索</p>
       <div className="quick-actions">
-        <label className="search-box">
-          <span>搜索</span>
+        <label className="search-box home-search-box">
+          <span className="sr-only">搜索</span>
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
@@ -546,10 +547,10 @@ function LibraryView({
   if (libraryMode === 'create') {
     return (
       <section className="page-panel" aria-labelledby="create-library-title">
-        <div className="page-heading">
+        <div className="page-heading library-heading">
           <div>
           <p className="soft-label">new shelf</p>
-            <h1 id="create-library-title">新建词典</h1>
+            <h1 id="create-library-title">新建辞典</h1>
           </div>
           <button className="sort-toggle" type="button" onClick={() => setLibraryMode('grid')}>
             返回
@@ -583,7 +584,7 @@ function LibraryView({
           </div>
 
           <button className="save-button" type="submit">
-            保存词典
+            保存辞典
           </button>
         </form>
       </section>
@@ -593,7 +594,7 @@ function LibraryView({
   if (libraryMode === 'detail' && selectedLibrary) {
     return (
       <section className="page-panel" aria-labelledby="library-detail-title">
-        <div className="page-heading">
+        <div className="page-heading library-heading">
           <div>
             <p className="soft-label">dictionary shelf</p>
             <h1 id="library-detail-title">{selectedLibrary.name}</h1>
@@ -608,7 +609,7 @@ function LibraryView({
             <Card key={card.id} card={card} onDelete={deleteCard} onEdit={editCard} />
           ))}
           {libraryCards.length === 0 && (
-            <div className="empty-state">这个词典还空着。给卡片加上「{selectedLibrary.tag}」标签，它就会出现在这里。</div>
+            <div className="empty-state">这个辞典还空着。给卡片加上「{selectedLibrary.tag}」标签，它就会出现在这里。</div>
           )}
         </section>
       </section>
@@ -620,7 +621,7 @@ function LibraryView({
       <div className="page-heading library-heading">
         <div>
           <p className="soft-label">dictionaries</p>
-          <h1 id="library-title">词典</h1>
+          <h1 id="library-title">辞典</h1>
         </div>
         <div className="library-toolbar">
           {isDeletingLibraries ? (
@@ -677,7 +678,7 @@ function LibraryView({
             <div className="plus-mark" aria-hidden="true">
               +
             </div>
-            <span className="add-shelf-text">新建词典</span>
+            <span className="add-shelf-text">新建辞典</span>
           </button>
         )}
       </div>
@@ -688,7 +689,7 @@ function LibraryView({
 function BottomNav({ activeView, setActiveView }) {
   const items = [
     { id: 'home', label: '首页', icon: '⌂' },
-    { id: 'library', label: '词典', icon: '◇' },
+    { id: 'library', label: '辞典', icon: '◇' },
     { id: 'dictionary', label: '卡片库', icon: '▤' },
   ]
 
