@@ -463,7 +463,7 @@ function HomeView({ query, setQuery, flipCard, pickRandomCard, clearFlipCard, de
 
       <header className="hero" onClick={(event) => event.stopPropagation()}>
         <p className="soft-label">happy coding</p>
-        <h1 id="app-title">满满代码翻译器</h1>
+        <h1 id="app-title">满满代码站</h1>
       </header>
 
       <p className="home-search-label" onClick={(event) => event.stopPropagation()}>搜索</p>
