@@ -40,7 +40,7 @@ button {
   background:
     radial-gradient(circle at 18% 19%, rgba(255, 174, 186, 0.8) 0 9px, transparent 10px),
     radial-gradient(circle at 82% 27%, rgba(115, 188, 222, 0.75) 0 8px, transparent 9px),
-    linear-gradient(180deg, #fff8dc 0 88px, #fffdf0 88px calc(100% - 88px), #fff8dc calc(100% - 88px));
+    linear-gradient(180deg, #fff8dc 0 74px, #fffdf0 74px calc(100% - 74px), #fff8dc calc(100% - 74px));
 }
 .app-shell::before,
 .app-shell::after {
@@ -48,10 +48,10 @@ button {
   left: -8vw;
   z-index: 0;
   width: 116vw;
-  height: 92px;
+  height: 72px;
   content: "";
-  background-image: url("/assets/lace-trim.svg");
-  background-size: 280px 92px;
+  background-image: url("/assets/lace-trim-photo.png");
+  background-size: 720px 72px;
   background-repeat: repeat-x;
   pointer-events: none;
 }
