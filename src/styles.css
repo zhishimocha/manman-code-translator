@@ -40,42 +40,20 @@ button {
   background:
     radial-gradient(circle at 18% 19%, rgba(255, 174, 186, 0.8) 0 9px, transparent 10px),
     radial-gradient(circle at 82% 27%, rgba(115, 188, 222, 0.75) 0 8px, transparent 9px),
-    linear-gradient(180deg, #fbe5e9 0 108px, #fffdf0 108px calc(100% - 104px), #fbe5e9 calc(100% - 104px));
+    linear-gradient(180deg, #fff8dc 0 88px, #fffdf0 88px calc(100% - 88px), #fff8dc calc(100% - 88px));
 }
-
 .app-shell::before,
 .app-shell::after {
   position: absolute;
   left: -8vw;
   z-index: 0;
   width: 116vw;
-  height: 88px;
+  height: 92px;
   content: "";
-  background:
-    radial-gradient(circle at 6% 28%, #9ed2ed 0 10px, transparent 11px),
-    radial-gradient(circle at 18% 43%, rgba(158, 210, 237, 0.38) 0 3px, transparent 4px),
-    radial-gradient(circle at 25% 43%, rgba(158, 210, 237, 0.38) 0 3px, transparent 4px),
-    radial-gradient(circle at 50% 28%, #9ed2ed 0 10px, transparent 11px),
-    radial-gradient(circle at 70% 43%, rgba(158, 210, 237, 0.38) 0 3px, transparent 4px),
-    radial-gradient(circle at 77% 43%, rgba(158, 210, 237, 0.38) 0 3px, transparent 4px),
-    radial-gradient(circle at 94% 28%, #9ed2ed 0 10px, transparent 11px),
-    radial-gradient(circle at 50% 0, #fffdf0 0 30px, transparent 31px),
-    radial-gradient(circle at 0 0, #fffdf0 0 30px, transparent 31px),
-    radial-gradient(circle at 100% 0, #fffdf0 0 30px, transparent 31px),
-    linear-gradient(#fffdf0 0 50px, transparent 50px);
-  background-size:
-    160px 88px,
-    160px 88px,
-    160px 88px,
-    160px 88px,
-    160px 88px,
-    160px 88px,
-    160px 88px,
-    80px 88px,
-    80px 88px,
-    80px 88px,
-    auto;
+  background-image: url("/assets/lace-trim.svg");
+  background-size: 280px 92px;
   background-repeat: repeat-x;
+  pointer-events: none;
 }
 
 .app-shell::before {
